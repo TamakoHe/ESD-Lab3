@@ -6,7 +6,7 @@ This lab session aimed to build an instrument amplifier
 and measure its characters such as offset voltage, differential gain and utilize it to determine the sensitivity of a pressure sensor.
 The choice of resistors were first calculated based on lab session's requirements. Then the circuit was built and verified and its features were measured. The sensor was then used as the amplifier's input and with the amplified voltage signal, the sensor's sensitivity can be worked out.
 == Introduction
-The operation amplifier(op amp) is an electronic component with a differential voltage input and a single output. It usually has a extremely high gain, high input impedance and low output impedance. 
+The operation amplifier(op amp) is an electronic component with a differential voltage input and a single output [1]. It usually has a extremely high gain, high input impedance and low output impedance. 
 With negative feedback network, op amp's characters can be controlled by external components such as resistors, which is simple and flexible for 
 signal processing. This lab session required building an instrument amplifier with multi op amp satisfying the given conditions. 
 #figure(caption: "Op amp")[#image("2024-12-05-14-24-19.png")]
@@ -26,7 +26,7 @@ electronic analysis on this circuit.
 
 For the first stage of this instrument amplifier, by 
 applying the virtual short and virtual open, the following 
-equations can be derived:
+equations can be derived [2]:
 $ I=(V_1-V_2)/R_g $
 $ (V_"u1"-V_1)/R_1=(V_1-V_2)/R_g  $
 $ V_"u1"-V_1=R_1/R_g (V_1-V_2) $
@@ -88,7 +88,7 @@ a electronic bridge, when it is pressured, a voltage
 difference will occur. The voltage is then amplified 
 and can be more accurately measured. When there is 
 no load on the sensor, the $V_"pp"$ of amplified signal 
-is $9 m V$, that is, the offset voltage $V_"offset"$.
+is $90 m V$, that is, the offset voltage $V_"offset"$.
 
 Treat the sensor as a linear component, we can determine its 
 characteristics just by plotting two pressure-voltage point.
@@ -98,22 +98,23 @@ We connected the sensor with voltage supply of $plus.minus 5V$ as the
 excitation voltage and load the sensor with the loads of different weight.
 The amplified voltages and the loads' weights are listed in #ref(<table-wv>).
 #figure(caption: "Weight-Voltage")[#table(align: 
-center, columns: 2)[Weight (kg)][Amplified voltage(mV)][0][9][0.5][423][1][605][1.5][708][2][749][2.5][852][3][910][3.5][1005][4][1053][4.5][1105]] <table-wv>
+center, columns: 2)[Weight (kg)][Amplified voltage(mV)][0][92][0.5][423][1][605][1.5][708][2][800][2.5][990][3][910][3.5][1005][4][1053][4.5][1102]] <table-wv>
 /*
+test_out[0]=92
 test_out[1]=423
 test_out[2]=605
 test_out[3]=708
-test_out[4]=749
-test_out[5]=852
-test_out[6]=910
+test_out[4]=800
+test_out[5]=900
+test_out[6]=990
 test_out[7]=1005
 test_out[8]=1053
-test_out[9]=1105
+test_out[9]=1100
 */
 The weight-voltage relation is displayed in #ref(<fig-6>).
 #figure(caption: "Weight-voltage relation")[#image("plot1.png")]<fig-6>
-By linear regression with least squares method, the sensitive is approximately 205.9 $"mV/kg"$
-Divided by the overall gain, the sensitive of the load cell is $205.9/240 approx 0.858 "mV/kg"$ 
+By linear regression with least squares method, the sensitive is approximately 199.3 $"mV/kg"$
+Divided by the overall gain, the sensitive of the load cell is $205.9/240 approx 0.830 "mV/kg"$ 
 == Discussion
 For task 2 and 3 that requiring constructing an instrument amplifier and 
 measuring its characters. In our first attempt, we found that our op amp would output a sine wave of $V_"pp" approx 10 V$ whatever the input voltage was. Our DC power supply is $plus.minus 5$ which indicated that the gain  
@@ -122,11 +123,12 @@ normal. For complex circuit arrangements, designing a well-organized wire path i
 
 For task 3 and 4, we find that the load's weight-output voltage relation 
 is not linear. The datasheet of this load cell says that the proper exciting
-voltage is 3\~10 V. That might caused by large exciting voltage of $5-(-5)=10 V$ which was near the upper bound. 
+voltage is 3\~10 V [3]. That might caused by large exciting voltage of $5-(-5)=10 V$ which was near the upper bound. In future testing, the $-5 V$ can 
+be modified to $0V$.
 == Conclusion
 Through this lab session, we constructed an two-stage instrument amplifier 
 with 3 op amp. And we also utilized this amplifier to measure the characters of a load cell. Amplifier which can make the signal larger without unexpected modification, is essential for signal processing and  
-relative electronic industries. Understanding the principles of operation amplifier is the basic skills of electronic engineering.
+relative electronic industries. Understanding the principles of operation amplifier is the basic skills of electronic engineering. 
 == References
 // https://en.wikipedia.org/wiki/Operational_amplifier
 // https://toshiba.semicon-storage.com/eu/semiconductor/knowledge/faq/linear_opamp/why-is-feedback-used-in-op-amps.html
