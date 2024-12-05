@@ -79,7 +79,7 @@ basic characters of our amplifier. In this task, we will apply a small sine sign
 of $4m V$ on one input terminal of a first-stage op amp. 
 The other input terminal of the first stage is connected to ground as #ref(<fig-5>). 
 #figure(caption: "Task 3 configuration")[#image("2024-12-05-19-42-28.png")]<fig-5>
-With that input, the output of our amplifier is a sine wave of $V_"pp"=$
+With that input, the output of our amplifier is a sine wave of $V_"pp"=960 m V$. Therefore, the gain is $960/4=240 V\/V$
 === Task 3&4
 This task required to use our instrument amplifier to
 measure the sensitivity of a weight sensor.
@@ -90,10 +90,54 @@ and can be more accurately measured. When there is
 no load on the sensor, the $V_"pp"$ of amplified signal 
 is $9 m V$, that is, the offset voltage $V_"offset"$.
 
-
+Treat the sensor as a linear component, we can determine its 
+characteristics just by plotting two pressure-voltage point.
+However, in real case, the sensor is not ideal, so that its characteristics 
+figure in not a line, multi points should be measured to get a more accurate description of the sensor's voltage response to pressure. 
+We connected the sensor with voltage supply of $plus.minus 5V$ as the 
+excitation voltage and load the sensor with the loads of different weight.
+The amplified voltages and the loads' weights are listed in #ref(<table-wv>).
+#figure(caption: "Weight-Voltage")[#table(align: 
+center, columns: 2)[Weight (kg)][Amplified voltage(mV)][0][9][0.5][423][1][605][1.5][708][2][749][2.5][852][3][910][3.5][1005][4][1053][4.5][1105]] <table-wv>
+/*
+test_out[1]=423
+test_out[2]=605
+test_out[3]=708
+test_out[4]=749
+test_out[5]=852
+test_out[6]=910
+test_out[7]=1005
+test_out[8]=1053
+test_out[9]=1105
+*/
+The weight-voltage relation is displayed in #ref(<fig-6>).
+#figure(caption: "Weight-voltage relation")[#image("plot1.png")]<fig-6>
+By linear regression with least squares method, the sensitive is approximately 205.9 $"mV/kg"$
+Divided by the overall gain, the sensitive of the load cell is $205.9/240 approx 0.858 "mV/kg"$ 
 == Discussion
+For task 2 and 3 that requiring constructing an instrument amplifier and 
+measuring its characters. In our first attempt, we found that our op amp would output a sine wave of $V_"pp" approx 10 V$ whatever the input voltage was. Our DC power supply is $plus.minus 5$ which indicated that the gain  
+is too high that the output would easily reach the limit. After solving the fatal issue that an $R_1$ was accidental short-cut, the output became 
+normal. For complex circuit arrangements, designing a well-organized wire path is essential to the system's robustness. 
+
+For task 3 and 4, we find that the load's weight-output voltage relation 
+is not linear. The datasheet of this load cell says that the proper exciting
+voltage is 3\~10 V. That might caused by large exciting voltage of $5-(-5)=10 V$ which was near the upper bound. 
 == Conclusion
+Through this lab session, we constructed an two-stage instrument amplifier 
+with 3 op amp. And we also utilized this amplifier to measure the characters of a load cell. Amplifier which can make the signal larger without unexpected modification, is essential for signal processing and  
+relative electronic industries. Understanding the principles of operation amplifier is the basic skills of electronic engineering.
 == References
 // https://en.wikipedia.org/wiki/Operational_amplifier
 // https://toshiba.semicon-storage.com/eu/semiconductor/knowledge/faq/linear_opamp/why-is-feedback-used-in-op-amps.html
 // 
+// 
+[1] Wikipedia, "Wikipedia," Online. Available: https://en.wikipedia.org/wiki/Operational_amplifier. [Accessed: Dec. 5, 2024].\
+[2] Toshiba, "Why is feedback used in opamps," Online. Available: https://toshiba.semicon-storage.com/eu/semiconductor/knowledge/faq/linear_opamp/why-is-feedback-used-in-op-amps.html. [Accessed: Dec. 5, 2024].\
+[3] Sensor and Control, "SC133 Micro Type Load Cell," Online. Available: https://akizukidenshi.com/goodsaffix/SC133-5kg%20load%20cell.pdf. [Accessed: Dec. 5, 2024].
+== Appendix (Lab session photographs)
+#image("2024-12-05-22-43-29.png")
+#image("2024-12-05-22-43-52.png", height: 40%)
+#image("2024-12-05-22-44-16.png")
+#image("2024-12-05-22-44-49.png")
+#image("2024-12-05-22-44-59.png")
