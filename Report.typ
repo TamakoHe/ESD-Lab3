@@ -19,7 +19,36 @@ $ V_"in"/R_1=(-V_"out")/R_2 $
 $ V_"out"=-R_2/R_1 V_"in" $
 ==  Methods
 In this lab session's design, 
-#figure(caption: "Ciruit")[#image("Cir_labeled.png")]
+#figure(caption: "Ciruit")[#image("Cir_labeled.png")]<fig-1>
+we used three op amp and multi resistors to build an instrument amplifier. The circuit is shown in #ref(<fig-1>). To select the proper resistors, we conduct 
+electronic analysis on this circuit. 
+
+For the first stage of this instrument amplifier, by 
+applying the virtual short and virtual open, the following 
+equations can be derived:
+$ I=(V_1-V_2)/R_g $
+$ (V_"u1"-V_1)/R_1=(V_1-V_2)/R_g  $
+$ V_"u1"-V_1=R_1/R_g (V_1-V_2) $
+$ V_"u1"=V_1+R_1/R_g (V_1-V_2) $
+$ (V_2-V_"u2")/R_1=(V_1-V_2)/R_g $
+$ V_2-V_"u2"=R_1/R_g (V_1-V_2) $
+$ V_"u2"=V_2-R_1/R_g (V_1-V_2) $
+$ V_"u1"-V_"u2"=V_1-V_2+2 R_1/R_g (V_1-V_2) $
+$ V_"u1"-V_"u2"=(1+2 R_1/R_g)(V_1-V_2) $
+$ (V_"u1"-V_"u2")/(V_1-V_2)=1+ 2 R_1/R_g=A_"v1" $
+
+For the second stage of this instrument amplifier, similarly, 
+$ A_"CM"=-1 times (R_3/R_2) $
+In summary, the differential gain is 
+$ A_v=V_"out"/(V_2-V_1)=(1+2 R_1/R_g) R_3/R_2 $ 
+For the common mode circumstance, $V_1=V_2=V_"cm"$
+both of the negative terminals of first-stage op amp's 
+voltage level is equal to $V_"cm"$, the voltage across $R_g$ is zero. Thus, according to the virtual open, 
+$I_-=0$, the current across $R_1$,$I_(R_1)=0$. $V_"out"=V_+=V_-=V_"cm"$, by analyzing the second stage 
+op amp, the common gain is 
+$ A_"CM"=R_3/R_2 $
+$ "CMRR"=A_v/A_"CM"=(1+2 R_1/R_g) $  
+
 == Results
 == Discussion
 == Conclusion
