@@ -88,7 +88,8 @@ a electronic bridge, when it is pressured, a voltage
 difference will occur. The voltage is then amplified 
 and can be more accurately measured. When there is 
 no load on the sensor, the $V_"pp"$ of amplified signal 
-is $9 m V$, 
+is $9 m V$, that is, the offset voltage $V_"offset"$.
+
 
 == Discussion
 == Conclusion
