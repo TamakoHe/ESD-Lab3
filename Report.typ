@@ -1,5 +1,6 @@
 #set text(size: 15pt, font: "Times New Roman")
 #align(center)[= Lab report]
+#set math.equation(numbering: "(1)")
 == Abstract
 This lab session aimed to build an instrument amplifier 
 and measure its characters such as offset voltage, differential gain and utilize it to determine the sensitivity of a weight sensor.
@@ -40,7 +41,7 @@ $ (V_"u1"-V_"u2")/(V_1-V_2)=1+ 2 R_1/R_g=A_"v1" $
 For the second stage of this instrument amplifier, similarly, 
 $ A_"CM"=-1 times (R_3/R_2) $
 In summary, the differential gain is 
-$ A_v=V_"out"/(V_2-V_1)=(1+2 R_1/R_g) R_3/R_2 $ 
+$ A_v=V_"out"/(V_2-V_1)=(1+2 R_1/R_g) R_3/R_2 $<eq-1>
 For the common mode circumstance, $V_1=V_2=V_"cm"$
 both of the negative terminals of first-stage op amp's 
 voltage level is equal to $V_"cm"$, the voltage across $R_g$ is zero. Thus, according to the virtual open, 
@@ -48,7 +49,20 @@ $I_-=0$, the current across $R_1$,$I_(R_1)=0$. $V_"out"=V_+=V_-=V_"cm"$, by anal
 op amp, the common gain is 
 $ A_"CM"=R_3/R_2 $
 $ "CMRR"=A_v/A_"CM"=(1+2 R_1/R_g) $  
+In this lab session, the second stage gain needed to be 1 meaning $R_3=R_2$. 
+As the overall gain should approximately be 200, $1+2 R_1/R_g$ should be 200, in this case, we chose $R_3=R_2=9.1 k Omega$, $R_1=9.1 k Omega, R_g=91 Omega$. So that, by 
+substituting these value in #ref(<eq-1>).
 
+For task of measuring the sensitive of a sensor, the two 
+output terminals of the sensor should be connected to 
+the two positive terminals of the first stage's op amps.
+The sensor can be seen as a electronic bridge displayed in 
+#figure(caption: "Electronic bridge")[#image("640.png")]
+$R_x$ will vary when external pressure change. When there
+is no external pressure, $R_x=R_3$ and electronic bridge 
+is balance so that $V_"out"=0$. When there is external pressure, the bridge's balance will corrupt and $V_"out"$ 
+will no longer be zero. By amplifying the slight change of $V_"out"$ by our instrument amplifier, the characters of 
+this sensor can be accurately calculated.
 == Results
 == Discussion
 == Conclusion
