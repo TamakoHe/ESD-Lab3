@@ -3,7 +3,7 @@
 #set math.equation(numbering: "(1)")
 == Abstract
 This lab session aimed to build an instrument amplifier 
-and measure its characters such as offset voltage, differential gain and utilize it to determine the sensitivity of a weight sensor.
+and measure its characters such as offset voltage, differential gain and utilize it to determine the sensitivity of a pressure sensor.
 The choice of resistors were first calculated based on lab session's requirements. Then the circuit was built and verified and its features were measured. The sensor was then used as the amplifier's input and with the amplified voltage signal, the sensor's sensitivity can be worked out.
 == Introduction
 The operation amplifier(op amp) is an electronic component with a differential voltage input and a single output. It usually has a extremely high gain, high input impedance and low output impedance. 
@@ -64,6 +64,32 @@ is balance so that $V_"out"=0$. When there is external pressure, the bridge's ba
 will no longer be zero. By amplifying the slight change of $V_"out"$ by our instrument amplifier, the characters of 
 this sensor can be accurately calculated.
 == Results
+=== Task 1
+For task 1, to ensured that the resistors we used are 
+that we wanted. We measured our chosen resistors 
+with DMM, the measured values and the labeled values are 
+shown in 
+#figure(caption: "Task 1")[#table(align: center, columns: 2)[Measured][Labeled][$468Omega$][$470Omega$][$471Omega$][$470Omega$][$9.10 k Omega$][$9.02 k Omega$][$9.10k Omega$][$9.12 k Omega$][$9.10 k Omega$][$9.08 k Omega$][$9.10k Omega$][$9.11 k Omega$][$9.10k Omega$][$9.15 k Omega$][$9.10k Omega$][$9.07 k Omega$][$91 Omega$][$95 Omega$][$91 Omega$][$89 Omega$]] 
+=== Task 2
+This task aims to measure the offset voltage of our 
+instrument amplifier. Setting $V_1=V_2=0$, then measure the $V_"out"$, our amplifier's offset voltage is $V_"offset"approx 80 mu V$
+=== Task 3
+This is the task that we will measure the gain and other 
+basic characters of our amplifier. In this task, we will apply a small sine signal with frequency of 1kHZ, peak to peak voltage 
+of $4m V$ on one input terminal of a first-stage op amp. 
+The other input terminal of the first stage is connected to ground as #ref(<fig-5>). 
+#figure(caption: "Task 3 configuration")[#image("2024-12-05-19-42-28.png")]<fig-5>
+With that input, the output of our amplifier is a sine wave of $V_"pp"=$
+=== Task 3&4
+This task required to use our instrument amplifier to
+measure the sensitivity of a weight sensor.
+As mentioned before, this sensor can be modeled as  
+a electronic bridge, when it is pressured, a voltage 
+difference will occur. The voltage is then amplified 
+and can be more accurately measured. When there is 
+no load on the sensor, the $V_"pp"$ of amplified signal 
+is $9 m V$, 
+
 == Discussion
 == Conclusion
 == References
